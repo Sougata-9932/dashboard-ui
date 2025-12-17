@@ -2,8 +2,6 @@
 
 A modern, fully interactive dashboard for managing AI agents, document processing workflows, and real-time collaboration. Built with React, TypeScript, Vite, and Tailwind CSS.
 
-![Dashboard Preview](file:///C:/Users/WELCOME/.gemini/antigravity/brain/730a813f-734f-4e0d-a7e0-9fd817415d2c/main_dashboard_view_1765882758971.png)
-
 ## 🌟 Features
 
 ### Core Functionality
