@@ -8,13 +8,16 @@ A modern, fully interactive dashboard for managing AI agents, document processin
 - **📁 File Upload System** - Drag & drop file upload with support for PDF, DOC, DOCX, TXT, CSV, and XLSX formats
 - **🤖 AI Agent Selection** - Choose from 4 specialized AI agents with real-time processing states
 - **💬 Interactive Chat** - Send messages and receive AI responses with typing indicators
-- **📊 Progress Tracking** - Animated progress counter with visual status updates
+- **�️ Virtual Env Sandbox** - Manage libraries, runtime configurations, and run code in a simulated terminal
+- **⚙️ Pipeline Configuration** - Interactive modal for designing dynamic workflow routes (Depth, Mode, Throughput)
+- **�📊 Progress Tracking** - Animated progress counter with visual status updates
 - **⚡ Workflow Automation** - Auto-cycling process flow visualization
 
 ### Navigation & Views
 - **🏠 Home Dashboard** - Main control center with upload, agents, and status widgets
 - **🔍 Search** - Full-text search with filtering across documents, agents, and insights
-- **📚 Layers** - Workflow pipeline management with 3 pre-configured processing flows
+- **📚 Layers** - Workflow pipeline management with interactive configuration modals
+- **📦 Sandbox** - Virtual environment management with integrated terminal
 - **👤 Profile** - User profile with statistics and activity overview
 - **💼 Workspace** - Collaborative environment with graph visualization and chat
 
@@ -124,14 +127,16 @@ dashboard-ui/
 │   │   │   ├── UploadZone.tsx      # File upload component
 │   │   │   ├── ProcessFlow.tsx     # Workflow visualization
 │   │   │   ├── AgentSelector.tsx   # Agent selection panel
-│   │   │   └── StatusCard.tsx      # Progress indicator
+│   │   │   ├── StatusCard.tsx      # Progress indicator
+│   │   │   └── PipelineDiagram.tsx # SVG workflow visualization
 │   │   ├── chat/
 │   │   │   ├── ChatInterface.tsx   # Chat messaging UI
 │   │   │   └── GraphView.tsx       # Network graph
 │   │   └── views/
 │   │       ├── SearchView.tsx      # Search results page
 │   │       ├── ProfileView.tsx     # User profile page
-│   │       └── LayersView.tsx      # Workflow management
+│   │       ├── LayersView.tsx      # Workflow management
+│   │       └── SandboxView.tsx     # Virtual environment sandbox
 │   ├── App.tsx                     # Main app component
 │   ├── main.tsx                    # Entry point
 │   ├── index.css                   # Global styles
@@ -195,7 +200,11 @@ Interactive chat messaging UI.
 
 #### `GraphView.tsx`
 Network graph visualization.
-- **Features**: Node positioning, connecting lines, labels
+
+#### `PipelineDiagram.tsx`
+Dynamic SVG workflow visualization based on configuration.
+- **Props**: `config` (depth, mode, throughput)
+- **Features**: Interactive nodes, conditional branching, real-time updates
 
 ### View Components
 
@@ -210,8 +219,13 @@ User profile with stats.
 
 #### `LayersView.tsx`
 Workflow pipeline management.
-- **State**: `activeWorkflow`
-- **Features**: 3 workflows, step breakdown, run/configure actions
+- **State**: `activeWorkflow`, `isModalOpen`
+- **Features**: 3 workflows, step breakdown, interactive configuration modal for the Document Processing Pipeline
+
+#### `SandboxView.tsx`
+Virtual environment management with integrated terminal.
+- **State**: `dependencies`
+- **Features**: Runtime configuration cards, package manager (add/remove), interactive terminal console
 
 ## 🎯 Features Deep Dive
 

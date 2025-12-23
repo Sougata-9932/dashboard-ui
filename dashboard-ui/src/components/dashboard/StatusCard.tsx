@@ -1,26 +1,31 @@
 import { useEffect, useState } from 'react';
 
-export function StatusCard() {
+interface StatusCardProps {
+    onComplete?: () => void;
+}
+
+export function StatusCard({ onComplete }: StatusCardProps) {
     const [progress, setProgress] = useState(0);
-    const targetProgress = 0;
+    const targetProgress = 100;
     const radius = 35;
     const circumference = 2 * Math.PI * radius;
     const strokeDashoffset = circumference - (progress / 100) * circumference;
 
     useEffect(() => {
-        // Animate progress on mount
+        setProgress(0); // Reset on mount
         const interval = setInterval(() => {
             setProgress(prev => {
                 if (prev >= targetProgress) {
                     clearInterval(interval);
+                    if (onComplete) setTimeout(onComplete, 500); // Small delay before closing
                     return targetProgress;
                 }
                 return prev + 1;
             });
-        }, 30);
+        }, 50);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [onComplete]);
 
     return (
         <div className="flex items-center gap-8 h-full">

@@ -11,7 +11,7 @@ export function Layout({ children, activeView = 'home', onNavigate }: LayoutProp
     return (
         <div className="flex h-screen bg-slate-100 font-sans text-slate-900 overflow-hidden">
             <Sidebar active={activeView} onNavigate={onNavigate} />
-            <main className="flex-1 overflow-auto flex flex-col relative">
+            <main className="flex-1 overflow-hidden flex flex-col relative">
                 {children}
             </main>
         </div>

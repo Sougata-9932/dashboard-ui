@@ -1,9 +1,9 @@
-import { Home, Search, Settings, User, HelpCircle, Layers } from 'lucide-react';
+import { Home, Search, Settings, User, HelpCircle, Layers, Terminal } from 'lucide-react';
 import clsx from 'clsx';
 
 interface SidebarProps {
     active?: string;
-    onNavigate?: (view: 'home' | 'search' | 'layers' | 'profile' | 'workspace') => void;
+    onNavigate?: (view: 'home' | 'search' | 'layers' | 'profile' | 'workspace' | 'sandbox') => void;
 }
 
 export function Sidebar({ active = 'home', onNavigate }: SidebarProps) {
@@ -11,6 +11,7 @@ export function Sidebar({ active = 'home', onNavigate }: SidebarProps) {
         { id: 'home', icon: Home, label: 'Home' },
         { id: 'search', icon: Search, label: 'Search' },
         { id: 'layers', icon: Layers, label: 'Layers' },
+        { id: 'sandbox', icon: Terminal, label: 'Sandbox' },
         { id: 'profile', icon: User, label: 'Profile' },
     ];
 
